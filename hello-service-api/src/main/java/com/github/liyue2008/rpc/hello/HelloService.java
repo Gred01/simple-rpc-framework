@@ -13,10 +13,18 @@
  */
 package com.github.liyue2008.rpc.hello;
 
+import com.github.liyue2008.rpc.hello.entity.HelloRequest;
+import com.github.liyue2008.rpc.hello.entity.HelloResult;
+
 /**
  * @author LiYue
  * Date: 2019/9/20
  */
 public interface HelloService {
+
     String hello(String name);
+
+    HelloResult helloMoreResult(String name,String value);
+
+    HelloResult helloMoreResult(HelloRequest request);
 }

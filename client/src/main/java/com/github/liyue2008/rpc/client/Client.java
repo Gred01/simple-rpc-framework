@@ -16,6 +16,8 @@ package com.github.liyue2008.rpc.client;
 import com.github.liyue2008.rpc.NameService;
 import com.github.liyue2008.rpc.RpcAccessPoint;
 import com.github.liyue2008.rpc.hello.HelloService;
+import com.github.liyue2008.rpc.hello.entity.HelloRequest;
+import com.github.liyue2008.rpc.hello.entity.HelloResult;
 import com.github.liyue2008.rpc.spi.ServiceSupport;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -23,6 +25,8 @@ import org.slf4j.LoggerFactory;
 import java.io.File;
 import java.io.IOException;
 import java.net.URI;
+import java.util.Arrays;
+import java.util.Date;
 
 /**
  * @author LiYue
@@ -43,8 +47,11 @@ public class Client {
             logger.info("找到服务{}，提供者: {}.", serviceName, uri);
             HelloService helloService = rpcAccessPoint.getRemoteService(uri, HelloService.class);
             logger.info("请求服务, name: {}...", name);
-            String response = helloService.hello(name);
-            logger.info("收到响应: {}.", response);
+            HelloRequest request = new HelloRequest();
+            request.setParam(Arrays.asList("hello","world"));
+            request.setTimestamp(new Date().toString());
+            HelloResult response = helloService.helloMoreResult(request);
+            logger.info("收到响应: {}.", response.toString());
         }
 
 

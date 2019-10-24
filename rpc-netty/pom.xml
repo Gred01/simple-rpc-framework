@@ -44,6 +44,10 @@
             <groupId>com.itranswarp</groupId>
             <artifactId>compiler</artifactId>
         </dependency>
+        <dependency>
+            <groupId>cglib</groupId>
+            <artifactId>cglib</artifactId>
+        </dependency>
     </dependencies>
 
 </project>
