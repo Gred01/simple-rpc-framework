@@ -39,7 +39,7 @@ public class Server {
         logger.info("创建并启动RpcAccessPoint...");
         try(RpcAccessPoint rpcAccessPoint = ServiceSupport.load(RpcAccessPoint.class);
             Closeable ignored = rpcAccessPoint.startServer()) {
-            NameService nameService = rpcAccessPoint.getNameService(file.toURI());
+            NameService nameService = rpcAccessPoint.getNameService(getOracleURI());
             assert nameService != null;
             logger.info("向RpcAccessPoint注册{}服务...", serviceName);
             URI uri = rpcAccessPoint.addServiceProvider(helloService, HelloService.class);
@@ -52,4 +52,13 @@ public class Server {
         }
     }
 
+    public static URI getMysqlURI(){
+        URI uri = URI.create("mysql8:jdbc:mysql://127.0.0.1:3306/boot?useUnicode=true&characterEncoding=utf8&serverTimezone=GMT%2B8");
+        return uri;
+    }
+
+    public static URI getOracleURI(){
+        URI uri = URI.create("oracle:jdbc:oracle:thin:@127.0.0.1:1521:orcl");
+        return uri;
+    }
 }

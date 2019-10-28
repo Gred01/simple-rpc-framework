@@ -41,7 +41,7 @@ public class ResponseHeader extends Header {
 
     @Override
     public int length() {
-        return Integer.BYTES + Integer.BYTES + Integer.BYTES + Integer.BYTES +
+        return Integer.BYTES + Integer.BYTES + Integer.BYTES +
                 Integer.BYTES +
                 (error == null ? 0 : error.getBytes(StandardCharsets.UTF_8).length);
     }

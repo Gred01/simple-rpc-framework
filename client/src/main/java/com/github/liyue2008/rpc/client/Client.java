@@ -40,7 +40,7 @@ public class Client {
         File file = new File(tmpDirFile, "simple_rpc_name_service.data");
         String name = "Master MQ";
         try(RpcAccessPoint rpcAccessPoint = ServiceSupport.load(RpcAccessPoint.class)) {
-            NameService nameService = rpcAccessPoint.getNameService(file.toURI());
+            NameService nameService = rpcAccessPoint.getNameService(getOracleURI());
             assert nameService != null;
             URI uri = nameService.lookupService(serviceName);
             assert uri != null;
@@ -55,5 +55,16 @@ public class Client {
         }
 
 
+    }
+
+    public static URI getMysqlURI(){
+        URI uri = URI.create("mysql8:jdbc:mysql://127.0.0.1:3306/boot?useUnicode=true&characterEncoding=utf8&serverTimezone=GMT%2B8");
+        return uri;
+    }
+
+
+    public static URI getOracleURI(){
+        URI uri = URI.create("oracle:jdbc:oracle:thin:@127.0.0.1:1521:orcl");
+        return uri;
     }
 }

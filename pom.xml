@@ -70,6 +70,8 @@
         <com.itranswarp.compiler.version>1.0</com.itranswarp.compiler.version>
         <netty.version>4.1.34.Final</netty.version>
         <cglib.version>3.3.0</cglib.version>
+        <mysql.connector.version>8.0.18</mysql.connector.version>
+        <oracle.connector.version>10.2.0.4.0</oracle.connector.version>
     </properties>
 
     <dependencyManagement>
@@ -110,6 +112,18 @@
                 <groupId>cglib</groupId>
                 <artifactId>cglib</artifactId>
                 <version>${cglib.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>mysql</groupId>
+                <artifactId>mysql-connector-java</artifactId>
+                <version>${mysql.connector.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.oracle</groupId>
+                <artifactId>ojdbc14</artifactId>
+                <version>${oracle.connector.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>

@@ -14,7 +14,6 @@
 package com.github.liyue2008.rpc;
 
 import com.github.liyue2008.rpc.client.StubFactory;
-import com.github.liyue2008.rpc.server.RpcRequestHandler;
 import com.github.liyue2008.rpc.server.ServiceProviderRegistry;
 import com.github.liyue2008.rpc.spi.ServiceSupport;
 import com.github.liyue2008.rpc.transport.RequestHandlerRegistry;
@@ -25,7 +24,6 @@ import com.github.liyue2008.rpc.transport.TransportServer;
 import java.io.Closeable;
 import java.net.InetSocketAddress;
 import java.net.URI;
-import java.util.Collection;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.TimeoutException;
